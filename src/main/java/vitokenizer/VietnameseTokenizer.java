@@ -102,13 +102,10 @@ public class VietnameseTokenizer extends Tokenizer {
 //            }
 
 
-            System.out.println("next while");
 //            final TaggedWord word = taggedWords.next();
             Token t = taggedWords.next();
             String word = t.getWord();
-            System.out.println("w = " + word);
             if (accept(word)) {
-                System.out.println("word = " + word);
                 posIncrAtt.setPositionIncrement(skippedPositions + 1);
                 typeAtt.setType(TypeAttribute.DEFAULT_TYPE);
                 final int length = word.length();
@@ -137,7 +134,6 @@ public class VietnameseTokenizer extends Tokenizer {
 
     @Override
     public final void end() throws IOException {
-        System.out.println("end");
         super.end();
         final int finalOffset = correctOffset(offset);
         offsetAtt.setOffset(finalOffset, finalOffset);
@@ -150,7 +146,6 @@ public class VietnameseTokenizer extends Tokenizer {
         offset = 0;
         skippedPositions = 0;
         tokenize(input);
-        System.out.println("reset");
     }
 
     private void tokenize(Reader input) {

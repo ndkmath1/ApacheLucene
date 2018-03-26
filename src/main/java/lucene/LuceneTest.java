@@ -2,6 +2,7 @@ package lucene;
 
 import org.apache.lucene.analysis.Analyzer;
 import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.MMapDirectory;
 import vitokenizer.VietnameseAnalyzer;
@@ -38,10 +39,12 @@ public class LuceneTest {
         try {
             Directory d = new MMapDirectory(Paths.get(indexDir));
             Searcher s = new Searcher();
-            s.search(field, q, analyzer, d);
+            s.searchHighlight(field, q, analyzer, d);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (ParseException e) {
+            e.printStackTrace();
+        } catch (InvalidTokenOffsetsException e) {
             e.printStackTrace();
         }
     }

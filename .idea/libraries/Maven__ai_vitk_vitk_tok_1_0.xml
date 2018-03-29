@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: ai.vitk:vitk-tok:1.0">
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/ai/vitk/vitk-tok/1.0/vitk-tok-1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$MAVEN_REPOSITORY$/ai/vitk/vitk-tok/1.0/vitk-tok-1.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$MAVEN_REPOSITORY$/ai/vitk/vitk-tok/1.0/vitk-tok-1.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

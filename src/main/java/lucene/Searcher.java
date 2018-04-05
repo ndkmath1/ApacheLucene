@@ -18,6 +18,21 @@ import java.io.IOException;
  */
 public class Searcher {
 
+    public void searchMulti(Query q, Directory indexDir) throws IOException {
+        int hitsPerPage = 1000;
+        IndexReader reader = DirectoryReader.open(indexDir);
+        IndexSearcher searcher = new IndexSearcher(reader);
+        TopDocs docs = searcher.search(q, hitsPerPage);
+        ScoreDoc[] hits = docs.scoreDocs;
+        System.out.println("len: " + hits.length);
+        for (int i = 0; i < hits.length; ++i) {
+            int docId = hits[i].doc;
+            Document d = searcher.doc(docId);
+            System.out.println((i + 1) + ". " + d.get("title") + ", score: " + hits[i].score);
+            System.out.println(d.get("description"));
+        }
+    }
+
     public void search(String field, String query, Analyzer analyzer, Directory indexDir) throws ParseException, IOException {
         Query q = new QueryParser(field, analyzer).parse(query);
         int hitsPerPage = 100;
@@ -36,7 +51,7 @@ public class Searcher {
 
     public void searchHighlight(String field, String queryStr, Analyzer analyzer, Directory indexDir) throws ParseException, IOException, InvalidTokenOffsetsException {
         Query query = new QueryParser(field, analyzer).parse(queryStr);
-        int hitsPerPage = 100;
+        int hitsPerPage = 10000;
         IndexReader reader = DirectoryReader.open(indexDir);
         IndexSearcher searcher = new IndexSearcher(reader);
         //Search the lucene documents

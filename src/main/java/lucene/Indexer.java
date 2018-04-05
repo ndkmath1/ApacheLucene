@@ -36,6 +36,9 @@ public class Indexer {
             System.out.println("addDoc " + i);
             ++i;
             addDoc(writer, r);
+            if (i == 10000) {
+                break;
+            }
         }
         writer.close();
     }

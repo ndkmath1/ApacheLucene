@@ -39,23 +39,56 @@ public class QueryPattern {
     private static final String RANGE_PRICE_BMBM_2 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern RANGE_PRICE_BMBM_PATTERN_2 = Pattern.compile(RANGE_PRICE_BMBM_2);
 
-    // < or dưới, nhỏ hơn
-    private static final String LESS_THAN_PRICE_BI = "(?i)(\\s*(<|(nh[oỏ]\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    // < , dưới, nhỏ hơn
+    private static final String LESS_THAN_PRICE_BI = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern LESS_THAN_PRICE_BI_PATTERN = Pattern.compile(LESS_THAN_PRICE_BI);
-    private static final String LESS_THAN_PRICE_MI = "(?i)(\\s*(<|(nh[oỏ]\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    private static final String LESS_THAN_PRICE_MI = "(?i)(\\s*(<|((nh[oỏ]||th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
     private static final Pattern LESS_THAN_PRICE_MI_PATTERN = Pattern.compile(LESS_THAN_PRICE_MI);
 
-    // > or trên, lớn hơn
-    private static final String GREATER_THAN_PRICE_BI = "(?i)(\\s*(>|(l[oơớ]n\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    // > , trên, lớn hơn
+    private static final String GREATER_THAN_PRICE_BI = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern GREATER_THAN_PRICE_BI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_BI);
-    private static final String GREATER_THAN_PRICE_MI = "(?i)(\\s*(>|(l[oơớ]n\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    private static final String GREATER_THAN_PRICE_MI = "(?i)(\\s*(>|(l[oơớ]n|cao\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
     private static final Pattern GREATER_THAN_PRICE_MI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_MI);
 
-    private static final String SINGLE_AREA = "";
-    private static final Pattern SINGLE_AREA_PATTERN = Pattern.compile("");
-    private static final String RANGE_AREA = "";
-    private static final Pattern RANGE_AREA_PATTERN = Pattern.compile("");
-    String areaPattern = "m2";
+    private static final String SINGLE_AREA = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(m2|m\\^2)";
+    private static final Pattern SINGLE_AREA_PATTERN = Pattern.compile(SINGLE_AREA);
+    private static final String RANGE_AREA = "(?i)((?:\\d*\\.)?\\d+)(\\s*(m2|m\\^2)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:m2|m\\^2))";
+    private static final Pattern RANGE_AREA_PATTERN = Pattern.compile(RANGE_AREA);
+    private static final String LESS_THAN_AREA = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(m2|m\\^2)";
+    private static final Pattern LESS_THAN_AREA_PATTERN = Pattern.compile(LESS_THAN_AREA);
+    private static final String GREATER_THAN_AREA = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(m2|m\\^2)";
+    private static final Pattern GREATER_THAN_AREA_PATTERN = Pattern.compile(GREATER_THAN_AREA);
+
+    // số phòng ngủ/pn
+    private static final String SINGlE_BEDROOM = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(pn|ph[oò]ng\\s+ng[uủ])";
+    private static final Pattern SINGLE_BEDROOM_PATTERN = Pattern.compile(SINGlE_BEDROOM);
+    private static final String RANGE_BEDROOM = "(?i)((?:\\d*\\.)?\\d+)(\\s*(pn|ph[oò]ng\\s+ng[uủ])?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:pn|ph[oò]ng\\s+ng[uủ]))";
+    private static final Pattern RANGE_BEDROOM_PATTERN = Pattern.compile(RANGE_BEDROOM);
+    private static final String LESS_THAN_BEDROOM = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(pn|ph[oò]ng\\s+ng[uủ])";
+    private static final Pattern LESS_THAN_BEDROOM_PATTERN = Pattern.compile(LESS_THAN_BEDROOM);
+    private static final String GREATER_THAN_BEDROOM = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(pn|ph[oò]ng\\s+ng[uủ])";
+    private static final Pattern GREATER_THAN_BEDROOM_PATTERN = Pattern.compile(GREATER_THAN_BEDROOM);
+
+    // số toilet/vs/vệ sinh
+    private static final String SINGlE_TOILET = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(vs|v[eệ]\\s+sinh|toilet)";
+    private static final Pattern SINGLE_TOILET_PATTERN = Pattern.compile(SINGlE_TOILET);
+    private static final String RANGE_TOILET = "(?i)((?:\\d*\\.)?\\d+)(\\s*(vs|v[eệ]\\s+sinh|toilet)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:vs|v[eệ]\\s+sinh|toilet))";
+    private static final Pattern RANGE_TOILET_PATTERN = Pattern.compile(RANGE_TOILET);
+    private static final String LESS_THAN_TOILET = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(vs|v[eệ]\\s+sinh|toilet)";
+    private static final Pattern LESS_THAN_TOILET_PATTERN = Pattern.compile(LESS_THAN_TOILET);
+    private static final String GREATER_THAN_TOILET = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(vs|v[eệ]\\s+sinh|toilet)";
+    private static final Pattern GREATER_THAN_TOILET_PATTERN = Pattern.compile(GREATER_THAN_TOILET);
+
+    // số tầng (mua nhà riêng)
+    private static final String SINGlE_FLOOR = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[aâầ]ng)";
+    private static final Pattern SINGLE_FLOOR_PATTERN = Pattern.compile(SINGlE_FLOOR);
+    private static final String RANGE_FLOOR = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[aâầ]ng)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:t[aâầ]ng))";
+    private static final Pattern RANGE_FLOOR_PATTERN = Pattern.compile(RANGE_FLOOR);
+    private static final String LESS_THAN_FLOOR = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(t[aâầ]ng)";
+    private static final Pattern LESS_THAN_FLOOR_PATTERN = Pattern.compile(LESS_THAN_FLOOR);
+    private static final String GREATER_THAN_FLOOR = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(t[aâầ]ng)";
+    private static final Pattern GREATER_THAN_FLOOR_PATTERN = Pattern.compile(GREATER_THAN_FLOOR);
 
     // test single Price
     private static String[] singlePrices = {
@@ -122,7 +155,11 @@ public class QueryPattern {
             " dưới 5.5 tỷ",
             " nhỏ hơn .89 tỷ",
             "  nho hon 34 t",
-            " nho hon 23 ty"
+            " nho hon 23 ty",
+            " thap hon 22.2 tỷ",
+            " thấp hơn 2ty",
+            " tháp hơn 2t",
+            " cao hon 2ty"
     };
 
     private static String[] greaterThanBi = {
@@ -132,7 +169,54 @@ public class QueryPattern {
             " trên 5.5 tỷ",
             " lớn hơn .89 tỷ",
             "  lon hon 34 t",
-            " lon hon 23 ty"
+            " lon hon 23 ty",
+            " cao hơn 2tỷ",
+            " cao hơn 2t",
+            " cao hon 2.2 ty"
+    };
+
+    private static String[] lessThanMi = {
+            " < 100 tr",
+            " < 10 trieu",
+            " < 10.1 triệu",
+            " dưới 5.5 triệu",
+            " nhỏ hơn .89 triệu",
+            "  nho hon 34 tr",
+            " nho hon 23 trieu"
+    };
+
+    private static String[] greaterThanMi = {
+            " > 100 tr jfjfjfjg",
+            " > 10 trieu",
+            " > 10.1 triệu",
+            " trên 5.5 triệu",
+            " lớn hơn .89 triệu",
+            "  lon hon 34 tr",
+            " lon hon 23 trieu"
+    };
+
+    private static String[] singleArea = {
+            " mua can ho .100 m2",
+            " mua can ho 200.2 m^2",
+            " mua chung cu dien tich 120m2",
+            " mua căn hộ chung cư diện tích 100 m2"
+    };
+
+    private static String[] rangeArea = {
+            "mua nhà riêng diện tích 60 - 100 m2 có 2 phòng ngủ",
+            " mua căn hộ giá diện tích khoảng 50 - 80m2",
+            "mua chung cư diện tích khoảng 25.5m^2-199m^2",
+            "mua chung cư diện tích 40 m2 - 60 m2",
+            "mua chung cư giá khoảng 40 m^2 - 70 m^2",
+            "mua nhà riêng diện tích khoảng 40m2-60m2"
+    };
+
+    private static String[] lessThanArea = {
+
+    };
+
+    private static String[] greaterThanArea = {
+
     };
 
     public static void main(String[] args) {
@@ -152,9 +236,17 @@ public class QueryPattern {
 //            System.out.println(i + " -------------------");
 //            lessThanBi(lessThanBi[i]);
 //        }
-        for (int i = 0; i < greaterThanBi.length; ++i) {
-            System.out.println(i + " ---------------------");
-            greaterThanBi(greaterThanBi[i]);
+//        for (int i = 0; i < greaterThanBi.length; ++i) {
+//            System.out.println(i + " ---------------------");
+//            greaterThanBi(greaterThanBi[i]);
+//        }
+//        for (int i = 0; i < singleArea.length; ++i) {
+//            System.out.println(i + " -----------------------");
+//            matchSingleArea(singleArea[i]);
+//        }
+        for (int i = 0; i < rangeArea.length; ++i) {
+            System.out.println(i + " -----------------------");
+            matchRangeArea(rangeArea[i]);
         }
     }
 
@@ -205,6 +297,39 @@ public class QueryPattern {
         Matcher m = GREATER_THAN_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
+            System.out.println(m.group(count - 1));
+        }
+    }
+
+    private static void lessThanMi(String s) {
+        Matcher m = LESS_THAN_PRICE_BI_PATTERN.matcher(s);
+        if (m.find()) {
+            int count = m.groupCount();
+            System.out.println(m.group(count - 1));
+        }
+    }
+
+    private static void greaterThanMi(String s) {
+        Matcher m = GREATER_THAN_PRICE_BI_PATTERN.matcher(s);
+        if (m.find()) {
+            int count = m.groupCount();
+            System.out.println(m.group(count - 1));
+        }
+    }
+
+    private static void matchSingleArea(String s) {
+        Matcher m = SINGLE_AREA_PATTERN.matcher(s);
+        if (m.find()) {
+            System.out.println(m.group(1));
+        }
+    }
+
+    private static void matchRangeArea(String s) {
+        Matcher m = RANGE_AREA_PATTERN.matcher(s);
+        if (m.find()) {
+            int count = m.groupCount();
+            System.out.println(m.group());
+            System.out.println(m.group(1));
             System.out.println(m.group(count - 1));
         }
     }

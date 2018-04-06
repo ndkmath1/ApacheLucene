@@ -9,19 +9,23 @@ import java.util.regex.Pattern;
 public class QueryPattern {
 
     // mua chung cư giá 1 tỷ tại linh đàm
-    private static final String SINGLE_PRICE = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[yỷ]?)";
-    private static final Pattern SINGLE_PRICE_PATTERN = Pattern.compile(SINGLE_PRICE);
+    private static final String SINGLE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[yỷ]?)";
+    private static final Pattern SINGLE_PRICE_BI_PATTERN = Pattern.compile(SINGLE_PRICE_BI);
+
     // mua chung cư giá 1-2 tỷ tại linh đàm, 1 2 tỷ, 1 - 2 t, 1.5 - 2.5 ty
 //    private static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern RANGE_PRICE_BI_PATTERN = Pattern.compile(RANGE_PRICE_BI);
 
-    private static final String SINGLE_PRICE_MI = "";
+    // mua nha rieng gia 500 trieu
+    private static final String SINGLE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
     private static final Pattern SINGLE_PRICE_MI_PATTERN = Pattern.compile(SINGLE_PRICE_MI);
 
+    // mua nha rieng gia 500 - 900 trieu
     private static final String RANGE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
     private static final Pattern RANGE_PRICE_MI_PATTERN = Pattern.compile(RANGE_PRICE_MI);
 
+    // mua nha rieng gia 900 trieu - 2 ty
     private static final String RANGE_PRICE_MI_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern RANGE_PRICE_MI_BI_PATTERN = Pattern.compile(RANGE_PRICE_MI_BI);
 
@@ -30,16 +34,22 @@ public class QueryPattern {
     private static final String RANGE_PRICE_BMB_2 = ""; // 1 ty 200 trieu den 2
     private static final String RANGE_PRICE_BMB_3 = ""; // 1 ty 200 trieu den 2 ty 2
     private static final String RANGE_PRICE_BMB_4 = ""; // 1 ty 2 den 2 ty 200 trieu
-
     private static final String RANGE_PRICE_BMBM_1 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern RANGE_PRICE_BMBM_PATTERN_1 = Pattern.compile(RANGE_PRICE_BMBM_1);
     private static final String RANGE_PRICE_BMBM_2 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern RANGE_PRICE_BMBM_PATTERN_2 = Pattern.compile(RANGE_PRICE_BMBM_2);
 
     // < or dưới, nhỏ hơn
-    private static final String LESS_THAN_PRICE = "";
+    private static final String LESS_THAN_PRICE_BI = "(?i)(\\s*(<|(nh[oỏ]\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    private static final Pattern LESS_THAN_PRICE_BI_PATTERN = Pattern.compile(LESS_THAN_PRICE_BI);
+    private static final String LESS_THAN_PRICE_MI = "(?i)(\\s*(<|(nh[oỏ]\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    private static final Pattern LESS_THAN_PRICE_MI_PATTERN = Pattern.compile(LESS_THAN_PRICE_MI);
+
     // > or trên, lớn hơn
-    private static final String GREATER_THAN_PRICE = "";
+    private static final String GREATER_THAN_PRICE_BI = "(?i)(\\s*(>|(l[oơớ]n\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    private static final Pattern GREATER_THAN_PRICE_BI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_BI);
+    private static final String GREATER_THAN_PRICE_MI = "(?i)(\\s*(>|(l[oơớ]n\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    private static final Pattern GREATER_THAN_PRICE_MI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_MI);
 
     private static final String SINGLE_AREA = "";
     private static final Pattern SINGLE_AREA_PATTERN = Pattern.compile("");
@@ -104,19 +114,47 @@ public class QueryPattern {
             "500 trieu - 1 ty"
     };
 
+    // test range price less than
+    private static String[] lessThanBi = {
+            " < 100 t",
+            " < 10 ty",
+            " < 10.1 tỷ",
+            " dưới 5.5 tỷ",
+            " nhỏ hơn .89 tỷ",
+            "  nho hon 34 t",
+            " nho hon 23 ty"
+    };
+
+    private static String[] greaterThanBi = {
+            " > 100 t jfjfjfjg",
+            " > 10 ty",
+            " > 10.1 tỷ",
+            " trên 5.5 tỷ",
+            " lớn hơn .89 tỷ",
+            "  lon hon 34 t",
+            " lon hon 23 ty"
+    };
 
     public static void main(String[] args) {
-        for (int i = 0; i < rangePrices.length; ++i) {
-            System.out.println(i + " -----------------");
-            matchRangePriceBi(rangePrices[i]);
-        }
-        for (int i = 0; i < singlePrices.length; ++i) {
-            System.out.println(i + " -----------------");
-            matchSinglePrice(singlePrices[i]);
-        }
-        for (int i = 0; i < rangesMi.length; ++i) {
-            System.out.println(i + " -----------------Mi");
-            matchRangePriceMi(rangesMi[i]);
+//        for (int i = 0; i < rangePrices.length; ++i) {
+//            System.out.println(i + " -----------------");
+//            matchRangePriceBi(rangePrices[i]);
+//        }
+//        for (int i = 0; i < singlePrices.length; ++i) {
+//            System.out.println(i + " -----------------");
+//            matchSinglePrice(singlePrices[i]);
+//        }
+//        for (int i = 0; i < rangesMi.length; ++i) {
+//            System.out.println(i + " -----------------Mi");
+//            matchRangePriceMi(rangesMi[i]);
+//        }
+//        for (int i = 0; i < lessThanBi.length; ++i) {
+//            System.out.println(i + " -------------------");
+//            lessThanBi(lessThanBi[i]);
+//        }
+        for (int i = 0; i < greaterThanBi.length; ++i) {
+            System.out.println(i + " ---------------------");
+            greaterThanBi(greaterThanBi[i]);
         }
     }
 
@@ -134,11 +172,15 @@ public class QueryPattern {
         }
     }
 
-    private static void matchSinglePrice(String s) {
-        Matcher m = SINGLE_PRICE_PATTERN.matcher(s);
+    private static void matchSinglePriceBi(String s) {
+        Matcher m = SINGLE_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             System.out.println(m.group(1));
         }
+    }
+
+    private static void matchSinglePriceMi(String s) {
+
     }
 
     private static void matchRangePriceMi(String s) {
@@ -147,6 +189,22 @@ public class QueryPattern {
             int count = m.groupCount();
             System.out.println(m.group());
             System.out.println(m.group(1));
+            System.out.println(m.group(count - 1));
+        }
+    }
+
+    private static void lessThanBi(String s) {
+        Matcher m = LESS_THAN_PRICE_BI_PATTERN.matcher(s);
+        if (m.find()) {
+            int count = m.groupCount();
+            System.out.println(m.group(count - 1));
+        }
+    }
+
+    private static void greaterThanBi(String s) {
+        Matcher m = GREATER_THAN_PRICE_BI_PATTERN.matcher(s);
+        if (m.find()) {
+            int count = m.groupCount();
             System.out.println(m.group(count - 1));
         }
     }

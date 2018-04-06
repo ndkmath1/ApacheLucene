@@ -15,6 +15,9 @@ public class QueryPattern {
     private static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_])(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
     private static final Pattern RANGE_PRICE_BI_PATTERN = Pattern.compile(RANGE_PRICE_BI);
 
+    private static final String SINGLE_PRICE_MI = "";
+    private static final Pattern SINGLE_PRICE_MI_PATTERN = Pattern.compile(SINGLE_PRICE_MI);
+
     private static final String RANGE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_])(\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(i[eêệ]u)?)";
     private static final Pattern RANGE_PRICE_MI_PATTERN = Pattern.compile(RANGE_PRICE_MI);
 

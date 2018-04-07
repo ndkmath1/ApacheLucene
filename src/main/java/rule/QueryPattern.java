@@ -6,92 +6,94 @@ import java.util.regex.Pattern;
 /**
  * Created by khanh on 05/04/2018.
  */
-public class QueryPattern {
+public final class QueryPattern {
+
+    public QueryPattern() {}
 
     // mua chung cư giá 1 tỷ tại linh đàm
-    private static final String SINGLE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[yỷ]?)";
-    private static final Pattern SINGLE_PRICE_BI_PATTERN = Pattern.compile(SINGLE_PRICE_BI);
+    public static final String SINGLE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[yỷ]?)";
+    public static final Pattern SINGLE_PRICE_BI_PATTERN = Pattern.compile(SINGLE_PRICE_BI);
 
     // mua chung cư giá 1-2 tỷ tại linh đàm, 1 2 tỷ, 1 - 2 t, 1.5 - 2.5 ty
-//    private static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final Pattern RANGE_PRICE_BI_PATTERN = Pattern.compile(RANGE_PRICE_BI);
+//    public static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final String RANGE_PRICE_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final Pattern RANGE_PRICE_BI_PATTERN = Pattern.compile(RANGE_PRICE_BI);
 
     // mua nha rieng gia 500 trieu
-    private static final String SINGLE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
-    private static final Pattern SINGLE_PRICE_MI_PATTERN = Pattern.compile(SINGLE_PRICE_MI);
+    public static final String SINGLE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    public static final Pattern SINGLE_PRICE_MI_PATTERN = Pattern.compile(SINGLE_PRICE_MI);
 
     // mua nha rieng gia 500 - 900 trieu
-    private static final String RANGE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
-    private static final Pattern RANGE_PRICE_MI_PATTERN = Pattern.compile(RANGE_PRICE_MI);
+    public static final String RANGE_PRICE_MI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    public static final Pattern RANGE_PRICE_MI_PATTERN = Pattern.compile(RANGE_PRICE_MI);
 
     // mua nha rieng gia 900 trieu - 2 ty
-    private static final String RANGE_PRICE_MI_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final Pattern RANGE_PRICE_MI_BI_PATTERN = Pattern.compile(RANGE_PRICE_MI_BI);
+    public static final String RANGE_PRICE_MI_BI = "(?i)((?:\\d*\\.)?\\d+)(\\s*(tr(i[eêệ]u)?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final Pattern RANGE_PRICE_MI_BI_PATTERN = Pattern.compile(RANGE_PRICE_MI_BI);
 
     // many cases
-    private static final String RANGE_PRICE_BMB_1 = ""; // 1 ty 2 den 2 ty
-    private static final String RANGE_PRICE_BMB_2 = ""; // 1 ty 200 trieu den 2
-    private static final String RANGE_PRICE_BMB_3 = ""; // 1 ty 200 trieu den 2 ty 2
-    private static final String RANGE_PRICE_BMB_4 = ""; // 1 ty 2 den 2 ty 200 trieu
-    private static final String RANGE_PRICE_BMBM_1 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final Pattern RANGE_PRICE_BMBM_PATTERN_1 = Pattern.compile(RANGE_PRICE_BMBM_1);
-    private static final String RANGE_PRICE_BMBM_2 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final Pattern RANGE_PRICE_BMBM_PATTERN_2 = Pattern.compile(RANGE_PRICE_BMBM_2);
+    public static final String RANGE_PRICE_BMB_1 = ""; // 1 ty 2 den 2 ty
+    public static final String RANGE_PRICE_BMB_2 = ""; // 1 ty 200 trieu den 2
+    public static final String RANGE_PRICE_BMB_3 = ""; // 1 ty 200 trieu den 2 ty 2
+    public static final String RANGE_PRICE_BMB_4 = ""; // 1 ty 2 den 2 ty 200 trieu
+    public static final String RANGE_PRICE_BMBM_1 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final Pattern RANGE_PRICE_BMBM_PATTERN_1 = Pattern.compile(RANGE_PRICE_BMBM_1);
+    public static final String RANGE_PRICE_BMBM_2 = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[yỷ]?)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final Pattern RANGE_PRICE_BMBM_PATTERN_2 = Pattern.compile(RANGE_PRICE_BMBM_2);
 
     // < , dưới, nhỏ hơn
-    private static final String LESS_THAN_PRICE_BI = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final Pattern LESS_THAN_PRICE_BI_PATTERN = Pattern.compile(LESS_THAN_PRICE_BI);
-    private static final String LESS_THAN_PRICE_MI = "(?i)(\\s*(<|((nh[oỏ]||th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
-    private static final Pattern LESS_THAN_PRICE_MI_PATTERN = Pattern.compile(LESS_THAN_PRICE_MI);
+    public static final String LESS_THAN_PRICE_BI = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final Pattern LESS_THAN_PRICE_BI_PATTERN = Pattern.compile(LESS_THAN_PRICE_BI);
+    public static final String LESS_THAN_PRICE_MI = "(?i)(\\s*(<|((nh[oỏ]||th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    public static final Pattern LESS_THAN_PRICE_MI_PATTERN = Pattern.compile(LESS_THAN_PRICE_MI);
 
     // > , trên, lớn hơn
-    private static final String GREATER_THAN_PRICE_BI = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
-    private static final Pattern GREATER_THAN_PRICE_BI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_BI);
-    private static final String GREATER_THAN_PRICE_MI = "(?i)(\\s*(>|(l[oơớ]n|cao\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
-    private static final Pattern GREATER_THAN_PRICE_MI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_MI);
+    public static final String GREATER_THAN_PRICE_BI = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*t[yỷ]?)";
+    public static final Pattern GREATER_THAN_PRICE_BI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_BI);
+    public static final String GREATER_THAN_PRICE_MI = "(?i)(\\s*(>|(l[oơớ]n|cao\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(\\s*tr(?:i[eêệ]u)?)";
+    public static final Pattern GREATER_THAN_PRICE_MI_PATTERN = Pattern.compile(GREATER_THAN_PRICE_MI);
 
-    private static final String SINGLE_AREA = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(m2|m\\^2)";
-    private static final Pattern SINGLE_AREA_PATTERN = Pattern.compile(SINGLE_AREA);
-    private static final String RANGE_AREA = "(?i)((?:\\d*\\.)?\\d+)(\\s*(m2|m\\^2)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:m2|m\\^2))";
-    private static final Pattern RANGE_AREA_PATTERN = Pattern.compile(RANGE_AREA);
-    private static final String LESS_THAN_AREA = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(m2|m\\^2)";
-    private static final Pattern LESS_THAN_AREA_PATTERN = Pattern.compile(LESS_THAN_AREA);
-    private static final String GREATER_THAN_AREA = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(m2|m\\^2)";
-    private static final Pattern GREATER_THAN_AREA_PATTERN = Pattern.compile(GREATER_THAN_AREA);
+    public static final String SINGLE_AREA = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(m2|m\\^2)";
+    public static final Pattern SINGLE_AREA_PATTERN = Pattern.compile(SINGLE_AREA);
+    public static final String RANGE_AREA = "(?i)((?:\\d*\\.)?\\d+)(\\s*(m2|m\\^2)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:m2|m\\^2))";
+    public static final Pattern RANGE_AREA_PATTERN = Pattern.compile(RANGE_AREA);
+    public static final String LESS_THAN_AREA = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(m2|m\\^2)";
+    public static final Pattern LESS_THAN_AREA_PATTERN = Pattern.compile(LESS_THAN_AREA);
+    public static final String GREATER_THAN_AREA = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(m2|m\\^2)";
+    public static final Pattern GREATER_THAN_AREA_PATTERN = Pattern.compile(GREATER_THAN_AREA);
 
     // số phòng ngủ/pn
-    private static final String SINGlE_BEDROOM = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(pn|ph[oò]ng\\s+ng[uủ])";
-    private static final Pattern SINGLE_BEDROOM_PATTERN = Pattern.compile(SINGlE_BEDROOM);
-    private static final String RANGE_BEDROOM = "(?i)((?:\\d*\\.)?\\d+)(\\s*(pn|ph[oò]ng\\s+ng[uủ])?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:pn|ph[oò]ng\\s+ng[uủ]))";
-    private static final Pattern RANGE_BEDROOM_PATTERN = Pattern.compile(RANGE_BEDROOM);
-    private static final String LESS_THAN_BEDROOM = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(pn|ph[oò]ng\\s+ng[uủ])";
-    private static final Pattern LESS_THAN_BEDROOM_PATTERN = Pattern.compile(LESS_THAN_BEDROOM);
-    private static final String GREATER_THAN_BEDROOM = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(pn|ph[oò]ng\\s+ng[uủ])";
-    private static final Pattern GREATER_THAN_BEDROOM_PATTERN = Pattern.compile(GREATER_THAN_BEDROOM);
+    public static final String SINGlE_BEDROOM = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(pn|ph[oò]ng\\s+ng[uủ])";
+    public static final Pattern SINGLE_BEDROOM_PATTERN = Pattern.compile(SINGlE_BEDROOM);
+    public static final String RANGE_BEDROOM = "(?i)((?:\\d*\\.)?\\d+)(\\s*(pn|ph[oò]ng\\s+ng[uủ])?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:pn|ph[oò]ng\\s+ng[uủ]))";
+    public static final Pattern RANGE_BEDROOM_PATTERN = Pattern.compile(RANGE_BEDROOM);
+    public static final String LESS_THAN_BEDROOM = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(pn|ph[oò]ng\\s+ng[uủ])";
+    public static final Pattern LESS_THAN_BEDROOM_PATTERN = Pattern.compile(LESS_THAN_BEDROOM);
+    public static final String GREATER_THAN_BEDROOM = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(pn|ph[oò]ng\\s+ng[uủ])";
+    public static final Pattern GREATER_THAN_BEDROOM_PATTERN = Pattern.compile(GREATER_THAN_BEDROOM);
 
     // số toilet/vs/vệ sinh
-    private static final String SINGlE_TOILET = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(vs|v[eệ]\\s+sinh|toilet)";
-    private static final Pattern SINGLE_TOILET_PATTERN = Pattern.compile(SINGlE_TOILET);
-    private static final String RANGE_TOILET = "(?i)((?:\\d*\\.)?\\d+)(\\s*(vs|v[eệ]\\s+sinh|toilet)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:vs|v[eệ]\\s+sinh|toilet))";
-    private static final Pattern RANGE_TOILET_PATTERN = Pattern.compile(RANGE_TOILET);
-    private static final String LESS_THAN_TOILET = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(vs|v[eệ]\\s+sinh|toilet)";
-    private static final Pattern LESS_THAN_TOILET_PATTERN = Pattern.compile(LESS_THAN_TOILET);
-    private static final String GREATER_THAN_TOILET = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(vs|v[eệ]\\s+sinh|toilet)";
-    private static final Pattern GREATER_THAN_TOILET_PATTERN = Pattern.compile(GREATER_THAN_TOILET);
+    public static final String SINGlE_TOILET = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(vs|v[eệ]\\s+sinh|toilet)";
+    public static final Pattern SINGLE_TOILET_PATTERN = Pattern.compile(SINGlE_TOILET);
+    public static final String RANGE_TOILET = "(?i)((?:\\d*\\.)?\\d+)(\\s*(vs|v[eệ]\\s+sinh|toilet)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:vs|v[eệ]\\s+sinh|toilet))";
+    public static final Pattern RANGE_TOILET_PATTERN = Pattern.compile(RANGE_TOILET);
+    public static final String LESS_THAN_TOILET = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(vs|v[eệ]\\s+sinh|toilet)";
+    public static final Pattern LESS_THAN_TOILET_PATTERN = Pattern.compile(LESS_THAN_TOILET);
+    public static final String GREATER_THAN_TOILET = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(vs|v[eệ]\\s+sinh|toilet)";
+    public static final Pattern GREATER_THAN_TOILET_PATTERN = Pattern.compile(GREATER_THAN_TOILET);
 
     // số tầng (mua nhà riêng)
-    private static final String SINGlE_FLOOR = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[aâầ]ng)";
-    private static final Pattern SINGLE_FLOOR_PATTERN = Pattern.compile(SINGlE_FLOOR);
-    private static final String RANGE_FLOOR = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[aâầ]ng)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:t[aâầ]ng))";
-    private static final Pattern RANGE_FLOOR_PATTERN = Pattern.compile(RANGE_FLOOR);
-    private static final String LESS_THAN_FLOOR = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(t[aâầ]ng)";
-    private static final Pattern LESS_THAN_FLOOR_PATTERN = Pattern.compile(LESS_THAN_FLOOR);
-    private static final String GREATER_THAN_FLOOR = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(t[aâầ]ng)";
-    private static final Pattern GREATER_THAN_FLOOR_PATTERN = Pattern.compile(GREATER_THAN_FLOOR);
+    public static final String SINGlE_FLOOR = "(?i)((?:\\d*\\.)?\\d+)(\\s*)(t[aâầ]ng)";
+    public static final Pattern SINGLE_FLOOR_PATTERN = Pattern.compile(SINGlE_FLOOR);
+    public static final String RANGE_FLOOR = "(?i)((?:\\d*\\.)?\\d+)(\\s*(t[aâầ]ng)?\\s*)([\\s-,_]|([dđ][eêế]n))(\\s*)((?:\\d*\\.)?\\d+)(\\s*(?:t[aâầ]ng))";
+    public static final Pattern RANGE_FLOOR_PATTERN = Pattern.compile(RANGE_FLOOR);
+    public static final String LESS_THAN_FLOOR = "(?i)(\\s*(<|((nh[oỏ]|th[aáâấ]p)\\s+h[oơ]n)|(d[uưứ][oơớ]i))\\s*)((?:\\d*\\.)?\\d+)(t[aâầ]ng)";
+    public static final Pattern LESS_THAN_FLOOR_PATTERN = Pattern.compile(LESS_THAN_FLOOR);
+    public static final String GREATER_THAN_FLOOR = "(?i)(\\s*(>|((l[oơớ]n|cao)\\s+h[oơ]n)|(tr[eê]n))\\s*)((?:\\d*\\.)?\\d+)(t[aâầ]ng)";
+    public static final Pattern GREATER_THAN_FLOOR_PATTERN = Pattern.compile(GREATER_THAN_FLOOR);
 
     // test single Price
-    private static String[] singlePrices = {
+    public static String[] singlePrices = {
             "mua chung cư giá 1 tỷ tại linh đàm",
             "1.334 ty",
             "1.22 t",
@@ -103,9 +105,9 @@ public class QueryPattern {
             "mua chung cu gia khoang 2.5 ty"
     };
 
-    private static String rangePrice = "mua chung cư giá 1.5-2.25 tỷ tại linh đàm";
+    public static String rangePrice = "mua chung cư giá 1.5-2.25 tỷ tại linh đàm";
     // test range price billion
-    private static String[] rangePrices = {
+    public static String[] rangePrices = {
             "1-2ty",
             "1-2tỷ",
             "1-2t",
@@ -132,7 +134,7 @@ public class QueryPattern {
             "2 tỷ 2 đến 2 tỷ 4"
     };
     // test range price million
-    private static String[] rangesMi = {
+    public static String[] rangesMi = {
             "100-200trieu",
             "100-200.5tr",
             "100.33-300triệu",
@@ -143,12 +145,12 @@ public class QueryPattern {
     };
 
     //test range price from million to billion
-    private static String[] rangeMiBi = {
+    public static String[] rangeMiBi = {
             "500 trieu - 1 ty"
     };
 
     // test range price less than
-    private static String[] lessThanBi = {
+    public static String[] lessThanBi = {
             " < 100 t",
             " < 10 ty",
             " < 10.1 tỷ",
@@ -162,7 +164,7 @@ public class QueryPattern {
             " cao hon 2ty"
     };
 
-    private static String[] greaterThanBi = {
+    public static String[] greaterThanBi = {
             " > 100 t jfjfjfjg",
             " > 10 ty",
             " > 10.1 tỷ",
@@ -175,7 +177,7 @@ public class QueryPattern {
             " cao hon 2.2 ty"
     };
 
-    private static String[] lessThanMi = {
+    public static String[] lessThanMi = {
             " < 100 tr",
             " < 10 trieu",
             " < 10.1 triệu",
@@ -185,7 +187,7 @@ public class QueryPattern {
             " nho hon 23 trieu"
     };
 
-    private static String[] greaterThanMi = {
+    public static String[] greaterThanMi = {
             " > 100 tr jfjfjfjg",
             " > 10 trieu",
             " > 10.1 triệu",
@@ -195,14 +197,14 @@ public class QueryPattern {
             " lon hon 23 trieu"
     };
 
-    private static String[] singleArea = {
+    public static String[] singleArea = {
             " mua can ho .100 m2",
             " mua can ho 200.2 m^2",
             " mua chung cu dien tich 120m2",
             " mua căn hộ chung cư diện tích 100 m2"
     };
 
-    private static String[] rangeArea = {
+    public static String[] rangeArea = {
             "mua nhà riêng diện tích 60 - 100 m2 có 2 phòng ngủ",
             " mua căn hộ giá diện tích khoảng 50 - 80m2",
             "mua chung cư diện tích khoảng 25.5m^2-199m^2",
@@ -211,11 +213,11 @@ public class QueryPattern {
             "mua nhà riêng diện tích khoảng 40m2-60m2"
     };
 
-    private static String[] lessThanArea = {
+    public static String[] lessThanArea = {
 
     };
 
-    private static String[] greaterThanArea = {
+    public static String[] greaterThanArea = {
 
     };
 
@@ -250,11 +252,11 @@ public class QueryPattern {
         }
     }
 
-    private static boolean isMatch(String regex, String s) {
+    public static boolean isMatch(String regex, String s) {
         return s.matches(regex);
     }
 
-    private static void matchRangePriceBi(String s) {
+    public static void matchRangePriceBi(String s) {
         Matcher m = RANGE_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
@@ -264,18 +266,18 @@ public class QueryPattern {
         }
     }
 
-    private static void matchSinglePriceBi(String s) {
+    public static void matchSinglePriceBi(String s) {
         Matcher m = SINGLE_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             System.out.println(m.group(1));
         }
     }
 
-    private static void matchSinglePriceMi(String s) {
+    public static void matchSinglePriceMi(String s) {
 
     }
 
-    private static void matchRangePriceMi(String s) {
+    public static void matchRangePriceMi(String s) {
         Matcher m = RANGE_PRICE_MI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
@@ -285,7 +287,7 @@ public class QueryPattern {
         }
     }
 
-    private static void lessThanBi(String s) {
+    public static void lessThanBi(String s) {
         Matcher m = LESS_THAN_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
@@ -293,7 +295,7 @@ public class QueryPattern {
         }
     }
 
-    private static void greaterThanBi(String s) {
+    public static void greaterThanBi(String s) {
         Matcher m = GREATER_THAN_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
@@ -301,7 +303,7 @@ public class QueryPattern {
         }
     }
 
-    private static void lessThanMi(String s) {
+    public static void lessThanMi(String s) {
         Matcher m = LESS_THAN_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
@@ -309,7 +311,7 @@ public class QueryPattern {
         }
     }
 
-    private static void greaterThanMi(String s) {
+    public static void greaterThanMi(String s) {
         Matcher m = GREATER_THAN_PRICE_BI_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();
@@ -317,14 +319,14 @@ public class QueryPattern {
         }
     }
 
-    private static void matchSingleArea(String s) {
+    public static void matchSingleArea(String s) {
         Matcher m = SINGLE_AREA_PATTERN.matcher(s);
         if (m.find()) {
             System.out.println(m.group(1));
         }
     }
 
-    private static void matchRangeArea(String s) {
+    public static void matchRangeArea(String s) {
         Matcher m = RANGE_AREA_PATTERN.matcher(s);
         if (m.find()) {
             int count = m.groupCount();

@@ -5,14 +5,6 @@ package rule;
  */
 public enum QueryType {
 
-    OK(4000, "test");
-
-    int v;
-    String s;
-
-    QueryType(int v, String s) {
-        this.v = v;
-        this.s = s;
-    }
+    SINGLE, RANGE, LESS_THAN, GREATER_THAN
 
 }

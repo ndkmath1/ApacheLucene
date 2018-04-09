@@ -1,4 +1,4 @@
-package vitokenizer;
+package vntokenizer;
 
 import ai.vitk.tok.Tokenizer;
 

@@ -1,4 +1,4 @@
-package vitokenizer;
+package vntokenizer;
 
 import ai.vitk.type.Token;
 import org.apache.lucene.analysis.Tokenizer;
@@ -9,10 +9,6 @@ import org.apache.lucene.analysis.tokenattributes.TypeAttribute;
 
 import java.io.IOException;
 import java.io.Reader;
-import java.io.StringReader;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
-import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 

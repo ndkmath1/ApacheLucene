@@ -8,7 +8,7 @@ import org.apache.lucene.search.Query;
 import org.apache.lucene.search.highlight.InvalidTokenOffsetsException;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.MMapDirectory;
-import vitokenizer.VietnameseAnalyzer;
+import vntokenizer.VietnameseAnalyzer;
 
 import java.io.IOException;
 import java.nio.file.Paths;

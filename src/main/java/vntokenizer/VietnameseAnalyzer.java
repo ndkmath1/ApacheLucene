@@ -1,4 +1,4 @@
-package vitokenizer;
+package vntokenizer;
 import org.apache.lucene.analysis.*;
 
 import java.util.Arrays;

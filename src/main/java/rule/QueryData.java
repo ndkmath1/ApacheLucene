@@ -5,6 +5,7 @@ import java.util.List;
 /**
  * Created by khanh on 07/04/2018.
  */
+
 public class QueryData<E> {
 
     private List<E> list;
